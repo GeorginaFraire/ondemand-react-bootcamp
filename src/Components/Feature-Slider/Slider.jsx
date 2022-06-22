@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { Banners } from "../mocks/featured-banners";
-import "../styles/css/Slider.css";
+import { Banners } from "../../mocks/featured-banners";
+import "../../styles/css/Slider.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import BtnSlider from "./BtnSlider";
 
 function Slider() {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -31,8 +29,6 @@ function Slider() {
       <div className="slide-container">
         {Banners.results.map((item, itemIndex) => {
           if (itemIndex === slideIndex) {
-            console.log("Item Index - ", itemIndex)
-            //si el itemIndex es igual al slideIndex
             return (
               <div key={item.id} className="slide">
                 <img
@@ -51,20 +47,6 @@ function Slider() {
   );
 }
 
-function BtnSlider({ direction, movement }) {
-  return (
-    <div className="btn-slide">
-      <button
-        onClick={movement}
-        className={direction === "left" ? "slide-prev" : "slide-next"}
-      >
-        <FontAwesomeIcon
-          icon={direction === "left" ? faArrowLeft : faArrowRight}
-          size="2x"
-        />
-      </button>
-    </div>
-  );
-}
+
 
 export default Slider;
