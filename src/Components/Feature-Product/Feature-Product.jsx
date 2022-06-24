@@ -1,7 +1,7 @@
 import React from "react";
-import { Products } from "../mocks/featured-products";
-import '../styles/css/FeatureProduct.css';
-import '../App.css'
+import { Products } from "../../mocks/featured-products";
+import './FeatureProduct.css';
+import "../../App.css"
 
 function FeatureProducts() {
   return (

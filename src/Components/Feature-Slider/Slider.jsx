@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Banners } from "../../mocks/featured-banners";
-import "../../styles/css/Slider.css";
+import "./Slider.css";
 
 import BtnSlider from "./BtnSlider";
 

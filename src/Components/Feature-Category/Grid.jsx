@@ -1,7 +1,7 @@
 import React from "react";
-import {Categories} from '../mocks/product-categories'
-import '../styles/css/GridCategory.css'
-import '../App.css'
+import {Categories} from '../../mocks/product-categories'
+import './GridCategory.css'
+import '../../App.css'
 
 function GridCategory() {
 

@@ -1,12 +1,10 @@
-
-
 import React from "react";
-import "../App.css";
-import Header from "./Header";
-import Footer from "./Footer";
+import "../App.css"
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 import Slider from "./Feature-Slider/Slider";
-import Grid from "./Grid";
-import FeatureProducts from "./Feature-Product";
+import Grid from "./Feature-Category/Grid";
+import FeatureProducts from "./Feature-Product/Feature-Product";
 
 function HomePage() {
     return (
