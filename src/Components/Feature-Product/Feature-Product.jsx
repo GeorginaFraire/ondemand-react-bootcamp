@@ -1,5 +1,5 @@
 import React from "react";
-import { Products } from "../../mocks/featured-products";
+import { Feature_Products } from "../../mocks/featured-products";
 import './FeatureProduct.css';
 import "../../App.css"
 
@@ -10,7 +10,7 @@ function FeatureProducts() {
         <h1> PRODUCTS </h1>
       </div>
       <div className="product-container">
-        {Products.results.map((item, itemIndex) => {
+        {Feature_Products.results.slice(0,2).map((item, itemIndex) => {
           return (
             <div key={item.id} className="product-card">
               <div className="product-card-img">

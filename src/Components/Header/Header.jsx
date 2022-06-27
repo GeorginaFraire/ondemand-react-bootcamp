@@ -10,7 +10,7 @@ export default class Header extends React.Component {
       <HeaderStyle>
         <div className="header-container ">
           <div className="header-logo">
-            <img src={logo} alt="e-commerce" />
+            <img src={logo} alt="e-commerce" onClick={this.props.GoHome} />
           </div>
           <div className="header-search">
             <input type="text" placeholder="Search" />

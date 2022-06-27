@@ -11,7 +11,7 @@ function GridCategory() {
             <h1> CATEGORIES </h1>
         </div>
         <div className="grid-container">
-            {Categories.results.map((item, itemIndex) => { 
+            {Categories.results.slice(0,1).map((item, itemIndex) => { 
                 return (    
                     <div key={item.id} className="grid-card">
                         <img className="grid-img" src={item.data.main_image.url} alt={item.data.main_image.alt} />
