@@ -1,0 +1,17 @@
+.container-pg-controls{
+    float:right;
+    margin-top:10px; 
+    margin-right:30px
+}
+
+.btn-pg-controls {
+    margin:2px;
+    background-color: transparent;
+    color: #1e517b;
+    border: none;
+}
+
+.moves-pg-controls {
+    border: 1px solid #1e517b;
+    cursor: "pointer"
+}
