@@ -10,7 +10,7 @@ function FeatureProducts() {
         <h1> PRODUCTS </h1>
       </div>
       <div className="product-container">
-        {Feature_Products.results.slice(0,2).map((item, itemIndex) => {
+        {Feature_Products.results.map((item, itemIndex) => {
           return (
             <div key={item.id} className="product-card">
               <div className="product-card-img">
@@ -23,8 +23,7 @@ function FeatureProducts() {
               <h3>{item.data.name}</h3>
               </div>
               <div className="product-card-content">
-                <p className="category">{item.data.category.slug.toUpperCase()}</p>
-                <p> {item.data.short_description}</p>
+                <p className="category">{item.data.category.slug.toUpperCase()}</p> 
               </div>
               <div className="product-card-footer">
                 <p>${item.data.price}</p>
