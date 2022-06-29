@@ -17,7 +17,7 @@ function App() {
       ></Header>
       {toggle ? <HomePage> </HomePage> : <ProductList></ProductList>}
       <div style={{ marginBottom: "80px" }}>
-        {toggle ? (
+        {toggle && (
           <button
             onClick={() => {
               setToggle(!toggle);
@@ -25,7 +25,7 @@ function App() {
           >
             View all products
           </button>
-        ) : null}
+        )}
       </div>
       <Footer text="Ecommerce created during Wizeline's Academy React Bootcamp"></Footer>
     </div>
