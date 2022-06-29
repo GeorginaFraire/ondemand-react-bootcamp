@@ -1,27 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import React, { useState } from "react";
+import "./App.css";
+import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Header/Header";
+import HomePage from "./Pages/HomePage.jsx";
+import ProductList from "./Pages/ProductListPage.jsx";
 
 function App() {
-  const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
+  const [toggle, setToggle] = useState(true);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header
+        GoHome={() => {
+          setToggle(true);
+        }}
+      ></Header>
+      {toggle ? <HomePage> </HomePage> : <ProductList></ProductList>}
+      <div style={{ marginBottom: "80px" }}>
+        {toggle && (
+          <button
+            onClick={() => {
+              setToggle(!toggle);
+            }}
+          >
+            View all products
+          </button>
+        )}
+      </div>
+      <Footer text="Ecommerce created during Wizeline's Academy React Bootcamp"></Footer>
     </div>
   );
 }
