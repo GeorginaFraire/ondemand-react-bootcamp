@@ -3,6 +3,7 @@ import HeaderStyle from "./HeaderStyled";
 import logo from "../../images/logo-ecommerce.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from 'prop-types';
 
 function Header({GoHome}) {
   return (
@@ -21,5 +22,8 @@ function Header({GoHome}) {
       </div>
     </HeaderStyle>
   );
+}
+Header.propTypes = {
+  GoHome : PropTypes.func
 }
 export default Header;

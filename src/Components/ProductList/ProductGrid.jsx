@@ -1,5 +1,6 @@
 import React from "react";
 import "../Feature-Product/FeatureProduct.css";
+import PropTypes from 'prop-types';
 
 function ProductGrid({ list }) {
   return (
@@ -28,6 +29,10 @@ function ProductGrid({ list }) {
       </div>
     </div>
   );
+}
+
+ProductGrid.prototype = {
+  list: PropTypes.array.isRequired
 }
 
 export default ProductGrid;

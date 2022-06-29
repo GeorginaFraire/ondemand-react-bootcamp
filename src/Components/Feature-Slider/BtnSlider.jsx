@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from 'prop-types';
 
 function BtnSlider({ direction, movement }) {
     return (
@@ -19,4 +20,8 @@ function BtnSlider({ direction, movement }) {
     );
   }
 
+  BtnSlider.propTypes = {
+    direction : PropTypes.string,
+    movement : PropTypes.func
+  }
   export default BtnSlider;

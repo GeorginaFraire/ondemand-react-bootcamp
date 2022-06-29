@@ -1,6 +1,7 @@
 import React from "react"
 import './ProductList.css'
 import {Categories} from "../../mocks/product-categories"
+import PropTypes from 'prop-types';
 
 function SideBarCategory({filter}){
 
@@ -15,6 +16,10 @@ function SideBarCategory({filter}){
         })}
     </div>
  )
+}
+
+SideBarCategory.prototype ={
+   filter: PropTypes.func
 }
 
 export default SideBarCategory
