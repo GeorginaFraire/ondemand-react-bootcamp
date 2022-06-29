@@ -1,8 +1,8 @@
 import React from "react";
-import "../../App.css"
-import Slider from "../Feature-Slider/Slider";
-import Grid from "../Feature-Category/Grid";
-import FeatureProducts from "../Feature-Product/Feature-Product";
+import "../App.css"
+import Slider from "../Components/Feature-Slider/Slider";
+import Grid from "../Components/Feature-Category/Grid";
+import FeatureProducts from "../Components/Feature-Product/Feature-Product";
 
 function HomePage() {
     return (

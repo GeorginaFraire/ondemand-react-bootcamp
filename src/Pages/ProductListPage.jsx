@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Products } from "../../mocks/products";
-import "./SideBarCategory";
-import SideBarCategory from "./SideBarCategory";
-import ProductGrid from "./ProductGrid";
-import LoadingSpiner from "../spiner/LoadingSpiner";
-import PaginationControls from "../Pagination-Controls/pagination-controls";
+import { Products } from "../mocks/products";
+import "../Components/ProductList/SideBarCategory";
+import SideBarCategory from "../Components/ProductList/SideBarCategory";
+import ProductGrid from "../Components/ProductList/ProductGrid";
+import LoadingSpiner from "../Components/spiner/LoadingSpiner";
+import PaginationControls from "../Components/Pagination-Controls/pagination-controls";
 
 function ProductList() {
   const [filters, setFilter] = useState([]);

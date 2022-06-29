@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
-import HomePage from "./Components/HomePage/HomePage.jsx";
-import ProductList from "./Components/ProductList/ProductList";
+import HomePage from "./Pages/HomePage.jsx";
+import ProductList from "./Pages/ProductListPage.jsx";
 
 function App() {
   const [toggle, setToggle] = useState(true);
