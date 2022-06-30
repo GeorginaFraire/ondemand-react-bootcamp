@@ -29,17 +29,15 @@
 
 .product-card-content{
     text-align: justify;
-    padding: 2px;
 }
 
 .category{
     text-decoration: underline overline;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.2em ;
+    font-size: 1em ;
 }
 
 .product-card-footer{
     width:100%;
     font-style: italic;
-    text-align: right;
 }

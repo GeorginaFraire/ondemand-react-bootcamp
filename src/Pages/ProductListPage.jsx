@@ -11,6 +11,16 @@ function ProductList() {
   const [productsFiltered, setProductsFiltered] = useState(Products.results);
   const [loadingSpiner, setLoadingSpiner] = useState(true);
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const category = urlParams.get("category");
+
+  useEffect(() => {
+    console.log(category);
+    if (category !== null) {
+      setFilter([...filters, category]);
+    }
+  }, []);
+
   useEffect(() => {
     console.log("timer");
     setTimeout(() => {
@@ -37,13 +47,16 @@ function ProductList() {
   return (
     <section>
       <div className="container">
-        <SideBarCategory filter={handleCategoryFilter}></SideBarCategory>
+        <SideBarCategory
+          filter={handleCategoryFilter}
+          category={category}
+        ></SideBarCategory>
         {loadingSpiner ? (
           <LoadingSpiner />
         ) : (
           <>
-          <PaginationControls></PaginationControls>
-          <ProductGrid list={productsFiltered}></ProductGrid>
+            <PaginationControls></PaginationControls>
+            <ProductGrid list={productsFiltered}></ProductGrid>
           </>
         )}
       </div>
