@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function ProductGrid({ list }) {
   return (
-    <div style={{marginLeft:'20%'}}>
+    <div >
       <div>
         <h1>This is the product list.</h1>
       </div>
@@ -23,7 +23,12 @@ function ProductGrid({ list }) {
                 <p>{item.data.category.slug}</p>
                 <p>$ {item.data.price}</p>
               </div>
+              <div className="product-card-footer">
+                 <button>Add to cart</button>
+                 <button>details</button>
+                </div>
             </div>
+            
           );
         })}
       </div>

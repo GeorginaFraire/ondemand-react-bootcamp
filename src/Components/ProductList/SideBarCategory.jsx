@@ -1,33 +1,38 @@
 import React from "react";
 import "./ProductList.css";
-import { Categories } from "../../mocks/product-categories";
+//import { Categories } from "../../mocks/product-categories";
 import PropTypes from "prop-types";
+import { useFeatureCategory } from "../../utils/hooks/useFeatureCategoryGrid";
+import LoadingSpiner from "../spiner/LoadingSpiner";
+import CheckBox from "./CheckBox";
 
-function SideBarCategory({ filter, category }) {
+
+function SideBarCategory({ filterOnClick,clearOnClick, filtros}) {
+  const { isLoading, data } = useFeatureCategory();
 
   return (
     <div className="sideBar">
-      {Categories.results.map((item) => {
+      {isLoading? <LoadingSpiner></LoadingSpiner> : data.results.map((item) => {
         return (
           <div key={item.id}>
-            <input
-              type="checkbox"
-              onClick={filter}
-              value={item.id}
-              name={item.data.name}
-              defaultChecked={category === item.id}
-            />
-            {item.data.name}
+            <CheckBox 
+            categoryID = {item.id}
+            categoryName = {item.data.name}
+            isChecked = {filtros.includes(item.id)}
+            filterOnClick = {filterOnClick}
+            ></CheckBox>
           </div>
         );
       })}
+        <button onClick={clearOnClick}>Clear filters</button>
     </div>
   );
 }
 
 SideBarCategory.prototype = {
-  filter: PropTypes.func,
-  category: PropTypes.string,
+  filterOnClick: PropTypes.func,
+  clearOnClick: PropTypes.func,
+  filtros: PropTypes.array,
 };
 
 export default SideBarCategory;

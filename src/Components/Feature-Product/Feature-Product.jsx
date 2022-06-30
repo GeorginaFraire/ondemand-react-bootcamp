@@ -7,8 +7,7 @@ import LoadingSpiner from "../spiner/LoadingSpiner";
 
 function FeatureProducts() {
   const { isLoading, data } = useFeaturedProducts();
-  console.log("isLoading - ", isLoading);
-  console.log("data - ", data);
+
   return (
     <>
       <div className="App-container-title">
