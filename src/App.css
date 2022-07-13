@@ -61,3 +61,10 @@ body{
     transform: rotate(360deg);
   }
 }
+
+.grid-2-cols{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+}

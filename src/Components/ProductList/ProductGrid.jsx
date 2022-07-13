@@ -1,6 +1,7 @@
 import React from "react";
 import "../Feature-Product/FeatureProduct.css";
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 function ProductGrid({ list }) {
   return (
@@ -25,7 +26,9 @@ function ProductGrid({ list }) {
               </div>
               <div className="product-card-footer">
                  <button>Add to cart</button>
+                 <Link to={`/product/${item.id}`}>
                  <button>details</button>
+                 </Link>
                 </div>
             </div>
             

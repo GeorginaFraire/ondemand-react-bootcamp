@@ -1,0 +1,79 @@
+table {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#info-main {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#info-main td {
+  padding: 5px;
+}
+
+#info-main td:nth-child(1) {
+  font-weight: bold;
+  text-align: left;
+  width: 20%;
+}
+
+#info-main td:nth-child(2) {
+  text-align: left;
+  width: 80%;
+}
+
+#info-spec {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#info-spec td,
+#info-spec thead {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+#info-spec tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#info-spec thead {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #d5ae99;
+  color: white;
+  text-align: center;
+}
+
+.info-description{
+    text-align: justify;
+    padding: 5px;
+    font-size: 18px;
+    margin: 20px;
+}
+
+.info-buttons {
+  padding: 15px 5px;
+  margin: 5px;
+}
+.info-buttons input {
+  border-radius: 10px;
+  width: 40px;
+  padding: 5px;
+  border-color: #d5ae99;
+}
+
+.info-buttons button {
+  border-radius: 10px;
+  background-color: transparent;
+  border-color: #d5ae99;
+  padding: 5px;
+  width: 20%;
+}
+
+.info-buttons button:hover {
+  background-color: #d5ae99;
+}

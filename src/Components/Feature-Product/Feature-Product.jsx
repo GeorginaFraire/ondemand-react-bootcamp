@@ -4,6 +4,7 @@ import "./FeatureProduct.css";
 import "../../App.css";
 import { useFeaturedProducts } from "../../utils/hooks/useFeatutrProducts";
 import LoadingSpiner from "../spiner/LoadingSpiner";
+import { Link } from "react-router-dom";
 
 function FeatureProducts() {
   const { isLoading, data } = useFeaturedProducts();
@@ -37,7 +38,9 @@ function FeatureProducts() {
                 </div>
                 <div className="product-card-footer">
                  <button>Add to cart</button>
+                 <Link to={`/product/${item.id}`}>
                  <button>details</button>
+                 </Link>
                 </div>
               </div>
             );
