@@ -1,27 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import React from "react";
+import "./App.css";
+import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Header/Header";
+import HomePage from "./Pages/HomePage.jsx";
+import ProductList from "./Pages/ProductListPage.jsx";
+import Search  from "./Pages/SearchPage.jsx";
+import { Routes, Route } from "react-router-dom";
+import ProductDetails from "./Pages/ProductDetailsPage.jsx";
 
 function App() {
-  const { data, isLoading } = useFeaturedBanners();
-  console.log(data, isLoading);
-
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header></Header>
+      <Routes>
+        <Route exac path="/" element={<HomePage></HomePage>}></Route>
+        <Route path="/home" element={<HomePage></HomePage>} />
+        <Route path="/products" element={<ProductList></ProductList>} />
+        <Route path="/product/:id" element={<ProductDetails></ProductDetails>} />
+        <Route path="/search" element={<Search></Search>} />
+      </Routes>
+      <Footer text="Ecommerce created during Wizeline's Academy React Bootcamp"></Footer>
     </div>
   );
 }
