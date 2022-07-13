@@ -28,8 +28,14 @@ const HeaderStyle = styled.header`
   }
 
   .header-search input {
-    width: 90%;
+    width: 70%;
     height: 30px;
+    margin-top: 5px;
+  }
+
+  .header-search button {
+    width: 20%;
+    height: 35px;
     margin-top: 5px;
   }
 

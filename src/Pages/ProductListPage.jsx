@@ -76,7 +76,7 @@ function ProductList() {
             pageSize ={data.results_size}
             onPageChange={handleSearchPage}
             ></PaginationControls> 
-            <ProductGrid list={data.results}></ProductGrid>
+            <ProductGrid list={data.results} showTitle={true}></ProductGrid>
           </div>
         )}
       </div>

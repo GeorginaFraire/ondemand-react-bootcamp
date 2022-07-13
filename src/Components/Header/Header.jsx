@@ -1,22 +1,43 @@
-import React from "react";
+import React,{useEffect} from "react";
 import HeaderStyle from "./HeaderStyled";
 import logo from "../../images/logo-ecommerce.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
+import { faCartShopping, faSearch } from "@fortawesome/free-solid-svg-icons";
 
-function Header({GoHome}) {
+import {Link, useNavigate} from 'react-router-dom'
+
+function Header() {
+  const [search, setSearch] = React.useState('');
+  let navigate = useNavigate();
+  
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    setSearch(urlParams.get("q"));
+  },[])
+
+  const onHandleSearchTerm = (e) => {
+    const url_serch = search.length > 0 ? `/search?q=${search}` : '/search';
+    navigate(url_serch);
+    navigate(0);
+  }
+
+  const onHandleChange  = (e) => {
+    setSearch(e.target.value);
+  }
+
   return (
     <HeaderStyle>
       <div className="header-container ">
         <div className="header-logo">
           <Link to='/home'>
-          <img src={logo} alt="e-commerce" onClick={GoHome} />
+          <img src={logo} alt="e-commerce" onClick={() => setSearch('')} />
           </Link>
         </div>
         <div className="header-search">
-          <input type="text" placeholder="Search" />
+          <input type="text" placeholder="Search" value={search || ''} onChange={onHandleChange}/>
+          <button onClick={onHandleSearchTerm}>
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
         </div>
 
         <div className="header-cart">
@@ -26,7 +47,6 @@ function Header({GoHome}) {
     </HeaderStyle>
   );
 }
-Header.propTypes = {
-  GoHome : PropTypes.func
-}
+
+
 export default Header;

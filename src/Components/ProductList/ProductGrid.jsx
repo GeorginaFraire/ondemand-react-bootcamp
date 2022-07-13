@@ -3,11 +3,11 @@ import "../Feature-Product/FeatureProduct.css";
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-function ProductGrid({ list }) {
+function ProductGrid({ list, showTitle }) {
   return (
     <div >
       <div>
-        <h1>This is the product list.</h1>
+        {showTitle ? <h1>This is the product list.</h1> : null}
       </div>
       <div className="product-container">
         {list.map((item) => {
@@ -40,7 +40,8 @@ function ProductGrid({ list }) {
 }
 
 ProductGrid.prototype = {
-  list: PropTypes.array.isRequired
+  list: PropTypes.array.isRequired,
+  showTitle: PropTypes.bool,
 }
 
 export default ProductGrid;
