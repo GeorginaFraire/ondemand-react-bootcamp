@@ -5,6 +5,7 @@ import Header from "./Components/Header/Header";
 import HomePage from "./Pages/HomePage.jsx";
 import ProductList from "./Pages/ProductListPage.jsx";
 import Search  from "./Pages/SearchPage.jsx";
+import ShoppingCart from "./Pages/ShoppingCartPage.jsx";
 import { Routes, Route } from "react-router-dom";
 import ProductDetails from "./Pages/ProductDetailsPage.jsx";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/products" element={<ProductList></ProductList>} />
         <Route path="/product/:id" element={<ProductDetails></ProductDetails>} />
         <Route path="/search" element={<Search></Search>} />
+        <Route path="/cart" element={<ShoppingCart></ShoppingCart>} />
       </Routes>
       <Footer text="Ecommerce created during Wizeline's Academy React Bootcamp"></Footer>
     </div>

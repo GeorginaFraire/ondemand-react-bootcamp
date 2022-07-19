@@ -41,7 +41,9 @@ function Header() {
         </div>
 
         <div className="header-cart">
-          <FontAwesomeIcon icon={faCartShopping} size="2x" />
+            <Link to='/cart'>
+            <FontAwesomeIcon icon={faCartShopping} size="2x" />
+              </Link>
         </div>
       </div>
     </HeaderStyle>
