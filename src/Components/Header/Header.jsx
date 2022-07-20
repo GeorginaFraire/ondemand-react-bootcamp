@@ -1,4 +1,5 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
+import {useSelector} from "react-redux";
 import HeaderStyle from "./HeaderStyled";
 import logo from "../../images/logo-ecommerce.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +8,8 @@ import { faCartShopping, faSearch } from "@fortawesome/free-solid-svg-icons";
 import {Link, useNavigate} from 'react-router-dom'
 
 function Header() {
-  const [search, setSearch] = React.useState('');
+  const [search, setSearch] = useState('');
+  const cart = useSelector((state) => state.cartProduct.CartProducts);
   let navigate = useNavigate();
   
   useEffect(() => {
@@ -43,7 +45,8 @@ function Header() {
         <div className="header-cart">
             <Link to='/cart'>
             <FontAwesomeIcon icon={faCartShopping} size="2x" />
-              </Link>
+            {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
+            </Link>
         </div>
       </div>
     </HeaderStyle>
