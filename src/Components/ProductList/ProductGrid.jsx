@@ -1,16 +1,22 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/reducers/index";
 import "../Feature-Product/FeatureProduct.css";
-import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function ProductGrid({ list, showTitle }) {
+  const dispatch = useDispatch();
+  const productsCart = useSelector((state) => state.cartProduct.CartProducts);
+
   return (
-    <div >
-      <div>
-        {showTitle ? <h1>This is the product list.</h1> : null}
-      </div>
+    <div>
+      <div>{showTitle ? <h1>This is the product list.</h1> : null}</div>
       <div className="product-container">
         {list.map((item) => {
+          let productfound = productsCart.find(
+            (itemCart) => itemCart.id === item.id
+          );
           return (
             <div key={item.id} className="product-card">
               <div className="product-card-img">
@@ -25,13 +31,21 @@ function ProductGrid({ list, showTitle }) {
                 <p>$ {item.data.price}</p>
               </div>
               <div className="product-card-footer">
-                 <button>Add to cart</button>
-                 <Link to={`/product/${item.id}`}>
-                 <button>details</button>
-                 </Link>
-                </div>
+                <button
+                  onClick={() => dispatch(addToCart(item))}
+                  disabled={
+                    productfound !== undefined
+                      ? productfound.newStock === 0
+                      : false
+                  }
+                >
+                  Add to cart
+                </button>
+                <Link to={`/product/${item.id}`}>
+                  <button>details</button>
+                </Link>
+              </div>
             </div>
-            
           );
         })}
       </div>
@@ -42,6 +56,6 @@ function ProductGrid({ list, showTitle }) {
 ProductGrid.prototype = {
   list: PropTypes.array.isRequired,
   showTitle: PropTypes.bool,
-}
+};
 
 export default ProductGrid;

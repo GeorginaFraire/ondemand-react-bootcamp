@@ -1,5 +1,6 @@
 import React from "react";
-//import { Feature_Products } from "../../mocks/featured-products";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/reducers/index";
 import "./FeatureProduct.css";
 import "../../App.css";
 import { useFeaturedProducts } from "../../utils/hooks/useFeatutrProducts";
@@ -8,6 +9,8 @@ import { Link } from "react-router-dom";
 
 function FeatureProducts() {
   const { isLoading, data } = useFeaturedProducts();
+  const dispatch = useDispatch();
+  const productsCart = useSelector((state) => state.cartProduct.CartProducts);
 
   return (
     <>
@@ -18,7 +21,11 @@ function FeatureProducts() {
         {isLoading ? (
           <LoadingSpiner></LoadingSpiner>
         ) : (
-          data.results.map((item, itemIndex) => {
+          data.results.map((item) => {
+            let productfound = productsCart.find(
+              (itemCart) => itemCart.id === item.id
+            );
+
             return (
               <div key={item.id} className="product-card">
                 <div className="product-card-img">
@@ -37,10 +44,19 @@ function FeatureProducts() {
                   <p>${item.data.price}</p>
                 </div>
                 <div className="product-card-footer">
-                 <button>Add to cart</button>
-                 <Link to={`/product/${item.id}`}>
-                 <button>details</button>
-                 </Link>
+                  <button
+                    onClick={() => dispatch(addToCart(item))}
+                    disabled={
+                      productfound !== undefined
+                        ? productfound.newStock === 0
+                        : false
+                    }
+                  >
+                    Add to cart
+                  </button>
+                  <Link to={`/product/${item.id}`}>
+                    <button>details</button>
+                  </Link>
                 </div>
               </div>
             );

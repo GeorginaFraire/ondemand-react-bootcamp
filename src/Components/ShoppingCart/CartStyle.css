@@ -1,0 +1,80 @@
+#cartTable table {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#cartTable 
+table,
+tr,
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+#cartTable td:nth-child(1) {
+  width: 50%;}
+
+td:nth-child(3) {
+  width: 20%;
+}
+#cartTable td:nth-child(2),
+td:nth-child(4),
+td:nth-child(5) {
+  width: 10%;
+}
+
+.wrapper{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: justify;
+  border-radius: 12px;
+}
+
+.wrapper-center{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.wrapper img {
+  width: 30%;
+  height: 100%;
+}
+
+.wrapper-center button{
+  width: 20%;
+  text-align: center;
+  /* font-size: 18px; */
+  font-weight: 200;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+}
+.wrapper-center span.num{
+  width: 10%;
+  /* font-size: 20px; */
+  border-right: 2px solid rgba(0,0,0,0.2);
+  border-left: 2px solid rgba(0,0,0,0.2);
+  pointer-events: none;
+}
+
+.btn-checkout {
+  padding: 15px 5px;
+  margin: 5px;
+}
+.btn-checkout button {
+  border-radius: 10px;
+  background-color: transparent;
+  border-color: #d5ae99;
+  padding: 5px;
+  width: 20%;
+}
+
+.btn-checkout button:hover {
+  background-color: #d5ae99;
+}
+

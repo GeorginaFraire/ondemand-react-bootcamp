@@ -1,27 +1,31 @@
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
-import {useDispatch, useSelector} from "react-redux";
-import {addToCart} from '../../redux/reducers/index'
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/reducers/index";
 import "./Product.css";
 
-export default function Product({product}) {
+export default function Product({ product }) {
   const dispatch = useDispatch();
   const btnAddToCart = useRef();
   const [quantity, setQuantity] = useState(1);
-  const cart = useSelector((state) => state.cartProduct.CartProducts);
+  const cart = useSelector((state) =>
+    state.cartProduct.CartProducts.find(
+      (item) => item.id === product.results[0].id
+    )
+  );
 
   const onHandleChange = (e) => {
     btnAddToCart.current.disabled = quantity > product.results[0].data.stock;
-    if(parseInt(e.target.value) <= product.results[0].data.stock){
-      product.newStock = product.results[0].data.stock - parseInt(e.target.value);
+    if (parseInt(e.target.value) <= product.results[0].data.stock) {
+      product.newStock =
+        product.results[0].data.stock - parseInt(e.target.value);
       product.quantity = parseInt(e.target.value);
-    } 
+    }
     setQuantity(parseInt(e.target.value));
-  }
+  };
 
   return (
     <>
-    
       <div>
         <table id="info-main">
           <tbody>
@@ -67,8 +71,20 @@ export default function Product({product}) {
         </table>
 
         <div className="info-buttons">
-          <input type="number" value={quantity || ''} onChange={onHandleChange} min={0} max={product.results[0].data.stock}></input>
-          <button ref={btnAddToCart} onClick={()=>dispatch(addToCart(product))} disabled={cart.length > 0  ? cart.find((item)=>item.id === product.results[0].id).newStock === 0 : false} >Add to cart</button>
+          <input
+            type="number"
+            value={quantity || ""}
+            onChange={onHandleChange}
+            min={0}
+            max={product.results[0].data.stock}
+          ></input>
+          <button
+            ref={btnAddToCart}
+            onClick={() => dispatch(addToCart(product.results[0]))}
+            disabled={cart !== undefined ? cart.newStock === 0 : false}
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </>
