@@ -17,9 +17,9 @@ export default function Product({ product }) {
   const onHandleChange = (e) => {
     btnAddToCart.current.disabled = quantity > product.results[0].data.stock;
     if (parseInt(e.target.value) <= product.results[0].data.stock) {
-      product.newStock =
+      product.results[0].newStock =
         product.results[0].data.stock - parseInt(e.target.value);
-      product.quantity = parseInt(e.target.value);
+      product.results[0].quantity = parseInt(e.target.value);
     }
     setQuantity(parseInt(e.target.value));
   };
