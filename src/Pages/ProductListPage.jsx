@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Components/ProductList/SideBarCategory";
@@ -53,7 +54,7 @@ function ProductList() {
   const handleClearFilters = () => {
     setFilter([]);
     document.querySelectorAll('input[type=checkbox]').forEach( el => el.checked = false );
-    navigate("/products", {replace: true});
+    navigate("/products");
     navigate(0);
   }
 
