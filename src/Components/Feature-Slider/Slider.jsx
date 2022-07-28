@@ -27,13 +27,13 @@ function Slider() {
 
   return (
     <>
-      <div className="slide-container">
+      <div className="slide-container" data-testid='home-feature-slider'>
         {isLoading ? <LoadingSpiner /> :
         data.results.map((item, itemIndex) => {
           if (itemIndex === slideIndex) {
             return (
-              <div key={item.id} className="slide">
-                <img
+              <div key={itemIndex} className="slide">
+                <img data-testid={`home-slide-${itemIndex}`}
                   src={item.data.main_image.url}
                   alt={item.data.main_image.alt}
                 />

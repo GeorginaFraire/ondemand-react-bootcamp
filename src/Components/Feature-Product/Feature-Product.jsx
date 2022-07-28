@@ -17,7 +17,7 @@ function FeatureProducts() {
       <div className="App-container-title">
         <h1> PRODUCTS </h1>
       </div>
-      <div className="product-container">
+      <div className="product-container" data-testid="home-feature-product">
         {isLoading ? (
           <LoadingSpiner></LoadingSpiner>
         ) : (
@@ -27,7 +27,7 @@ function FeatureProducts() {
             );
 
             return (
-              <div key={item.id} className="product-card">
+              <div key={item.id} className="product-card" data-testid={`home-feature-product-${item.id}`}>
                 <div className="product-card-img">
                   <img
                     src={item.data.mainimage.url}
