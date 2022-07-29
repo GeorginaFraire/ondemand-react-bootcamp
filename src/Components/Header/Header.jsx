@@ -43,7 +43,7 @@ function Header() {
         </div>
 
         <div className="header-cart">
-            <Link to='/cart'>
+            <Link to='/cart' data-testid="header-cart-button">
             <FontAwesomeIcon icon={faCartShopping} size="2x" />
             {cart.length > 0 && <span className="cart-count" data-testid="header-cart-count">{cart.length}</span>}
             </Link>

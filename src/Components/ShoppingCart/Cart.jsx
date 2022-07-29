@@ -16,37 +16,42 @@ function Cart() {
 
   return (
     <div>
-      <table id="cartTable">
-        <thead>
+      <table id="cartTable" data-testid="cart-table">
+        <thead data-testid="cart-table-header">
           <tr>
-            <td>Product</td>
-            <td>Price</td>
-            <td>Quantity</td>
-            <td>Total</td>
-            <td>Remove</td>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Remove</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-testid="cart-table-body">
           {cart.map((product, index) => {
             return (
-              <tr key={index}>
+              <tr key={index} data-testid={`cart-product-${product.id}`}>
                 <td>
                   <div className="wrapper">
                     <img src={product.image} alt={product.alt} />
-                    {product.name}
+                    Product Name {product.name}
                   </div>
                 </td>
-                <td> $ {product.price}</td>
-                <td>
+                <td data-testid={`cart-product-price-${product.id}`}>
+                  {" "}
+                  $ {product.price}
+                </td>
+                <td data-testid={`cart-product-quantity-${product.id}`}>
                   <div className="wrapper-center">
                     <button
+                      data-testid={`cart-product-quantity-decrement-${product.id}`}
                       onClick={() => dispatch(decrementQuantity(product))}
                       disabled={product.quantity === 1}
                     >
                       -
                     </button>
-                    <span className="num">{product.quantity}</span>
+                    <span className="num" data-testid={`cart-product-quantity-${product.id}-number`}>{product.quantity}</span>
                     <button
+                      data-testid={`cart-product-quantity-increment-${product.id}`}
                       onClick={() => dispatch(incrementQuantity(product))}
                       disabled={product.newStock === 0}
                     >
@@ -54,9 +59,13 @@ function Cart() {
                     </button>
                   </div>
                 </td>
-                <td> $ {product.total}</td>
-                <td>
-                  <button
+                <td data-testid={`cart-product-total-${product.id}`}>
+                  {" "}
+                  $ {product.total}
+                </td>
+                <td data-testid={`cart-remove-product-${product.id}`}>
+                  <button 
+                    data-testid={`cart-remove-product-${product.id}-button`}
                     style={{ border: "none", backgroundColor: "transparent" }}
                     onClick={() => dispatch(removeFromCart(product))}
                   >
@@ -74,17 +83,20 @@ function Cart() {
           })}
         </tbody>
         {cart.length > 0 && (
-          <tfoot>
+          <tfoot data-testid="cart-table-footer">
             <tr>
               <td colSpan="3" style={{ textAlign: "right" }}>
                 Total
               </td>
               <td colSpan="2" style={{ textAlign: "left" }}>
-                {cart.length > 0
-                  ? `$ ${cart.reduce((acc, product) => {
-                      return acc + product.total;
-                    }, 0)}`
-                  : "$ 0.00"}
+                $
+                <span data-testid="cart-total">
+                  {cart.length > 0
+                    ? cart.reduce((acc, product) => {
+                        return acc + product.total;
+                      }, 0)
+                    : 0}
+                </span>
               </td>
             </tr>
           </tfoot>

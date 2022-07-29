@@ -44,7 +44,7 @@ function FeatureProducts() {
                   <p>${item.data.price}</p>
                 </div>
                 <div className="product-card-footer">
-                  <button
+                  <button data-testid={`home-feature-product-add-${item.id}`}
                     onClick={() => dispatch(addToCart(item))}
                     disabled={
                       productfound !== undefined
