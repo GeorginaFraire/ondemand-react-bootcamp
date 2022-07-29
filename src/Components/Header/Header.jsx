@@ -45,7 +45,7 @@ function Header() {
         <div className="header-cart">
             <Link to='/cart'>
             <FontAwesomeIcon icon={faCartShopping} size="2x" />
-            {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
+            {cart.length > 0 && <span className="cart-count" data-testid="header-cart-count">{cart.length}</span>}
             </Link>
         </div>
       </div>
