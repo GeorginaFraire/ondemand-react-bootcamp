@@ -16,7 +16,7 @@ function SearchPage() {
   }
 
   return (
-    <div className="container">
+    <div className="container" data-testid="search-page">
       <h1>Search Page</h1>
       {isLoading ? (
         <p>Loading...</p>
@@ -33,7 +33,7 @@ function SearchPage() {
             <ProductGrid list={data.results} showTitle={false}></ProductGrid>
           </>
         ):
-        <h1>Sorry <span role="img" aria-label="sad-face">😭</span>! We couldn't find any products.</h1>
+        <h1 data-testid="search-not-found">Sorry <span role="img" aria-label="sad-face">😭</span>! We couldn't find any products.</h1>
         )
       }
     </div>
