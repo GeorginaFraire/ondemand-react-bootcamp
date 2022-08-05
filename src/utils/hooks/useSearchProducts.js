@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../constants";
 import { useLatestAPI } from "./useLatestAPI";
+import { useSearchParams } from "react-router-dom";
 
 export function useFeatureSearchProducts() {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
@@ -8,10 +10,10 @@ export function useFeatureSearchProducts() {
     data: {},
     isLoading: true,
   }));
-  const urlParams = new URLSearchParams(window.location.search);
-  const searchTerm = urlParams.get("q");
-  const page = urlParams.get("page");
-
+  const [searchParams] = useSearchParams();
+  
+  const searchTerm = searchParams.get("q");
+  const page = searchParams.get("page");
 
   useEffect(() => {
     if (!apiRef || isApiMetadataLoading) {

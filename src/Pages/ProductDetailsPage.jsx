@@ -12,7 +12,7 @@ function ProductDetails() {
       {isLoading ? (
         <LoadingSpiner></LoadingSpiner>
       ) : (
-        <div style={{ marginBottom: "80px" }}>
+        <div style={{ marginBottom: "80px" }} data-testid={`product-${data.results[0].id}`}>
           <div className="App-container-title">
             <h1>{data.results[0].data.name}</h1>
           </div>

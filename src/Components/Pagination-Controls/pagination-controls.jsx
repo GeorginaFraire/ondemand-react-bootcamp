@@ -30,42 +30,45 @@ function PaginationControls(props){
     let lastPage = paginationRange[paginationRange.length - 1];
 
     return (
-        <ul
+        <div data-testid={"pagination-controls"}
         className={classnames('pagination-container', "pagination-bar")}
       >
-        <li
+        <button disabled={currentPage === 1}
+        data-testid={"pagination-controls-prev"}
           className={classnames('pagination-item', {
             disabled: currentPage === 1
           })}
           onClick={prevPage}
         >
           <div className="arrow left" />
-        </li>
+        </button>
         {paginationRange.map((page, index)=> {
           if (page === DOTS) {
-            return <li key={index} className="pagination-item dots">&#8230;</li>;
+            return <button key={index} className="pagination-item dots"
+           
+            >&#8230;</button>;
           }
   
           return (
-            <li key={index}
+            <button key={index} data-testid={"button-number"}
               className={classnames('pagination-item', {
                 selected: page === currentPage
               })}
               onClick={() => onPageChange(page)}
             >
               {page}
-            </li>
+            </button>
           );
         })}
-        <li
+        <button data-testid={"pagination-controls-next"} disabled={currentPage === lastPage}
           className={classnames('pagination-item', {
             disabled: currentPage === lastPage
           })}
           onClick={nextPage}
         >
           <div className="arrow right" />
-        </li>
-      </ul>
+        </button>
+      </div>
     )
 }
 

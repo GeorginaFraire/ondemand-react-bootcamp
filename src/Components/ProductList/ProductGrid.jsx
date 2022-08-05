@@ -10,7 +10,7 @@ function ProductGrid({ list, showTitle }) {
   const productsCart = useSelector((state) => state.cartProduct.CartProducts);
 
   return (
-    <div>
+    <div >
       <div>{showTitle ? <h1>This is the product list.</h1> : null}</div>
       <div className="product-container">
         {list.map((item) => {
@@ -18,7 +18,7 @@ function ProductGrid({ list, showTitle }) {
             (itemCart) => itemCart.id === item.id
           );
           return (
-            <div key={item.id} className="product-card">
+            <div key={item.id} className="product-card" data-testid={`product-${item.id}`}>
               <div className="product-card-img">
                 <img
                   src={item.data.mainimage.url}

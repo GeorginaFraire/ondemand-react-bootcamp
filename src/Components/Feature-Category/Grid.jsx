@@ -13,13 +13,13 @@ function GridCategory() {
       <div className="App-container-title">
         <h1> CATEGORIES </h1>
       </div>
-      <div className="grid-container">
+      <div className="grid-container"  data-testid="home-feature-category">
         {isLoading ? (
           <LoadingSpiner />
         ) : (
           data.results.map((item, itemIndex) => {
             return (
-              <div key={item.id} className="grid-card">
+              <div key={item.id} className="grid-card" data-testid={`home-feature-category-${item.data.name}`}>
                 <Link to={`/products?category=${item.id}`}>
                   <img
                     className="grid-img"

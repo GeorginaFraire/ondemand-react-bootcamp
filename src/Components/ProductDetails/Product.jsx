@@ -27,27 +27,27 @@ export default function Product({ product }) {
   return (
     <>
       <div>
-        <table id="info-main">
+        <table id="info-main" data-testid="product-info-main">
           <tbody>
             <tr>
-              <td>Price: </td>
+              <td>Price </td>
               <td>$ {product.results[0].data.price}</td>
             </tr>
             <tr>
-              <td>SKU: </td>
+              <td>SKU </td>
               <td>{product.results[0].data.sku}</td>
             </tr>
             <tr>
-              <td>Category:</td>
+              <td>Category</td>
               <td>{product.results[0].data.category.slug}</td>
             </tr>
             <tr>
-              <td>Tags:</td>
+              <td>Tags</td>
               <td>{product.results[0].tags.join(",")}</td>
             </tr>
           </tbody>
         </table>
-        <p className="info-description">
+        <p className="info-description" data-testid="product-information-description">
           {product.results[0].data.short_description}
         </p>
 
@@ -72,6 +72,7 @@ export default function Product({ product }) {
 
         <div className="info-buttons">
           <input
+            data-testid="product-information-quantity"
             type="number"
             value={quantity || ""}
             onChange={onHandleChange}
@@ -79,6 +80,7 @@ export default function Product({ product }) {
             max={product.results[0].data.stock}
           ></input>
           <button
+            data-testid="product-information-add-to-cart"
             ref={btnAddToCart}
             onClick={() => dispatch(addToCart(product.results[0]))}
             disabled={cart !== undefined ? cart.newStock === 0 : false}

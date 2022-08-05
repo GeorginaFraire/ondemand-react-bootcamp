@@ -2,7 +2,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectCoverflow, Pagination  } from "swiper";
 import { array } from "prop-types";
-import 'swiper/css';
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
 
 
 

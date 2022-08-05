@@ -11,10 +11,10 @@ function SideBarCategory({ filterOnClick,clearOnClick, filtros}) {
   const { isLoading, data } = useFeatureCategory();
 
   return (
-    <div className="sideBar">
-      {isLoading? <LoadingSpiner></LoadingSpiner> : data.results.map((item) => {
+    <div className="sideBar" data-testid="product-list-sidebar">
+      {isLoading? <LoadingSpiner></LoadingSpiner> : data.results.map((item, index) => {
         return (
-          <div key={item.id}>
+          <div key={item.id} data-testid={`product-list-sidebar-${index}`}>
             <CheckBox 
             categoryID = {item.id}
             categoryName = {item.data.name}
