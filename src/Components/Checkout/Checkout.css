@@ -1,0 +1,81 @@
+#sumamaryTable table {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#sumamaryTable table,
+tr,
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+#sumamaryTable td:nth-child(1) {
+  width: 50%;
+}
+
+td:nth-child(3) {
+  width: 20%;
+}
+#sumamaryTable td:nth-child(2),
+td:nth-child(4),
+td:nth-child(5) {
+  width: 10%;
+}
+
+.wrapper {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: justify;
+  border-radius: 12px;
+}
+
+.wrapper-center {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.form-label {
+  width: 20%;
+  text-align: left;
+}
+
+.form-text {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-button {
+  width: 100%;
+  background-color: transparent;
+  border-color: #d5ae99;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.form-2-col button:hover{
+    background-color: #d5ae99;
+}
